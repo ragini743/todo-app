@@ -21,7 +21,7 @@ const TaskItem = ({ task }) => {
   };
 
   return (
-    <div className="task-item">
+    <div className="task-item mt-4">
       {isEditing ? (
         <input
           type="text"
