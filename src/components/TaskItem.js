@@ -21,8 +21,8 @@ const TaskItem = ({ task }) => {
   };
 
   return (
-    <div className="task-item mt-4 bg-green-200 flex  justify-between  pl-2 py-2 items-center">
-      <div className="w-[75%] mr-10">
+    <div className="task-item mt-4 bg-green-200 flex  sm:justify-between  pl-2 py-2 sm:items-center flex-col sm:flex-row">
+      <div className="w-[100%] sm:w-[75%] mr-10">
         {isEditing ? (
           <input className="outline-none bg-transparent w-full "
             type="text"
@@ -34,7 +34,7 @@ const TaskItem = ({ task }) => {
           <span className="text-wrap break-words">{task.text}</span>
         )}
       </div>
-      <div className="flex w-[25%] justify-end">
+      <div className="flex w-[100%] sm:w-[25%] justify-end">
         <div className="rounded-md mr-2">
           <button onClick={handleEdit} className="bg-blue-800 text-white py-1 px-2 rounded-md ">
             Edit
