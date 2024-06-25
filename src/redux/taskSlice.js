@@ -30,7 +30,7 @@ const taskSlice = createSlice({
         existingTask.text = text;
       }
     },
-    //
+    //complted the existing task
     toggleCompleteTask: (state, action) => {
       const existingTask = state.tasks.find(
         (task) => task.id === action.payload
