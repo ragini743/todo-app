@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteTask, editTask,  toggleCompleteTask } from "../redux/taskSlice";
+import { deleteTask, editTask,  saveTask,  toggleCompleteTask } from "../redux/taskSlice";
 
 const TaskItem = ({ task }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -20,15 +20,15 @@ const TaskItem = ({ task }) => {
     }
   };
 
-//   const handleEdit = () => {
-//     setIsEditing(true);
-//   };
-  console.log("isEditing",isEditing)
 
-  const handleSave = () => {
-    dispatch(editTask({ id: task.id, text: newText }));
-    setIsEditing(false);
+
+//   const handleSave = () => {
+//     dispatch(editTask({ id: task.id, text: newText }));
+//     setIsEditing(false);
+const handleSave = () => {
+    dispatch(saveTask(task.id)); // Save task to modal
   };
+//   };
 
 
   return (

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   tasks: [],
+  savedTasks:[],
   isModalOpen: false,
 };
 
@@ -38,6 +39,13 @@ const taskSlice = createSlice({
         existingTask.completed = !existingTask.completed;
       }
     },
+    saveTask: (state, action) => { // Add this action
+        const task = state.tasks.find(task => task.id === action.payload);
+        if (task) {
+          state.savedTasks.push(task);
+          state.tasks = state.tasks.filter(task => task.id !== action.payload);
+        }
+      },
 
   },
 });
@@ -47,6 +55,7 @@ export const {
   deleteTask,
   editTask,
   toggleCompleteTask,
+  saveTask
   
 } = taskSlice.actions;
 export default taskSlice.reducer;
